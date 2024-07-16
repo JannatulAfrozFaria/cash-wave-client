@@ -5,11 +5,31 @@ import { IoPersonAddSharp } from "react-icons/io5";
 
 import { ImProfile } from "react-icons/im";
 import { RiPlayListAddLine } from "react-icons/ri";
+import { useEffect, useState } from "react";
 // import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
     // const [isHR] = useAdmin();
-    const [isHR] = true;
+    const isHR = true;
+    //state for changing theme
+    const [theme,setTheme]= useState('light');
+
+    //Changing the Theme
+    useEffect(()=>{
+        localStorage.setItem('theme', theme)
+        const localTheme = localStorage.getItem('theme')
+        document.querySelector('html').setAttribute('data-theme',localTheme)
+    },[theme])
+
+
+    const handleTheme = (e) =>{
+        if(e.target.checked){
+            setTheme('forest')
+        }
+        else{
+            setTheme('light')
+        }
+    }
     return (
         <div className="flex">
         {/* Dashboard Content */}
@@ -17,7 +37,7 @@ const Dashboard = () => {
            <Outlet></Outlet>
        </div>
        {/* Dashboard Side Bar */}
-       <div className="w-40 md:w-64 min-h-screen bg-purple-200">
+       <div className="w-40 md:w-64 min-h-screen bg-blue-200">
            <ul className="menu p-4 uppercase">
                {
                    isHR ? 
@@ -56,6 +76,14 @@ const Dashboard = () => {
 
                {/* Shared Menu Options------- */}
                <div className="divider"></div>
+               <li>
+                    {/* THEME------CHANGE------BUTTON */}
+                    <label className="cursor-pointer grid place-items-center mr-2 md:mr-8">
+                        <input onChange={handleTheme} type="checkbox" className="toggle theme-controller bg-green-700 row-start-1 col-start-1 col-span-2"/>
+                        <svg className="col-start-1 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+                        <svg className="col-start-2 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </label>
+               </li>
                <li>
                            <NavLink to="/"><FaHome className="text-lg mr-0 md:mr-2" ></FaHome>Home</NavLink>
                        </li>
