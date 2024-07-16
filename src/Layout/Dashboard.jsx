@@ -1,10 +1,19 @@
 import { FaBars, FaBook, FaCalendar, FaHome, FaUsers } from "react-icons/fa";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import { IoIosSend } from "react-icons/io";
+
+import { ImEnter } from "react-icons/im";
 import { BsCashCoin } from "react-icons/bs";
+
+import { FaSignOutAlt } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
+
+import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 
 import { HiOutlineDocumentCheck } from "react-icons/hi2";
 import { IoPersonAddSharp } from "react-icons/io5";
+import { GoHistory } from "react-icons/go";
+
 
 import { ImProfile } from "react-icons/im";
 import { RiPlayListAddLine } from "react-icons/ri";
@@ -45,13 +54,22 @@ const Dashboard = () => {
                                <img className='w-1/2 mx-auto my-2' src="/src/assets/icons/icon.png" alt="" />
                            </li>
                            <li>
-                               <NavLink to="/dashboard/AddAnAsset"><BsCashCoin className="text-lg mr-0 md:mr-2" /> Cash In</NavLink>
+                               <NavLink to="/dashboard/AddAnAsset"><IoIosSend className="text-lg mr-0 md:mr-2" /> Send Money</NavLink>
                            </li>
                            <li>
-                               <NavLink to="/dashboard/myEmployeeList"><GiTakeMyMoney className="text-lg mr-0 md:mr-2"/>Cash Out</NavLink>
+                               <NavLink to="/dashboard/AddAnAsset"><ImEnter className="text-lg mr-0 md:mr-2" /> Cash In</NavLink>
                            </li>
                            <li>
-                               <NavLink to="/dashboard/addAnEmployee"> <HiOutlineDocumentCheck className="text-lg mr-0 md:mr-2" /> Register </NavLink>
+                               <NavLink to="/dashboard/myEmployeeList"><FaSignOutAlt className="text-lg mr-0 md:mr-2"/>Cash Out</NavLink>
+                           </li>
+                           <li>
+                               <NavLink to="/dashboard/myEmployeeList"><HiOutlineClipboardDocumentList className="text-lg mr-0 md:mr-2"/>Balance Inquiry</NavLink>
+                           </li>
+                           <li> 
+                               <NavLink to="/dashboard/myEmployeeList"><GoHistory className="text-lg mr-0 md:mr-2"/>Transaction History</NavLink>
+                           </li>
+                           <li>
+                               <NavLink to="/register"> <HiOutlineDocumentCheck className="text-lg mr-0 md:mr-2" /> Register </NavLink>
                            </li>
                        </> 
                    :
