@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import { Helmet } from "react-helmet-async";
-import registerIcon from '../../../public/register.json'
+import registerIcon from '../../../src/register.json'
 
 
 const Register = () => {
