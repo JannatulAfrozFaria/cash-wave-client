@@ -1,29 +1,20 @@
 import Lottie from "lottie-react";
-import { Helmet } from "react-helmet-async";
-import registerIcon from '../../../src/register.json'
 import { Link } from "react-router-dom";
-
-
-const Register = () => {
+import loginIcon from '../../../src/login.json'
+import { Helmet } from "react-helmet-async";
+const Login = () => {
     return (
-        <div className="mx-auto">
+        <div>
             <Helmet>
-                <title>Cash Wave | Register</title>
+                <title>Cash Wave | Login</title>
             </Helmet>
             <div className="hero bg-base-200 min-h-screen pb-16">
                 <div className="hero-content flex-col md:flex-row-reverse">
-                    <div className="text-center w-1/3 mx-16">
-                        <Lottie className='w-full md:w-[400px] mx-auto' animationData={registerIcon} />
+                    <div className="text-center w-1/2 md:w-1/2">
+                        <Lottie className='w-full h-full' animationData={loginIcon} />
                     </div>
-                    <div className="card bg-base-100 w-2/3 shadow-2xl">
+                    <div className="card bg-base-100 w-5/6 md:w-1/2 shadow-2xl">
                         <form className="card-body">
-                            {/* NAME--------- */}
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
-                                <input type="text" placeholder="Name" className="input input-bordered" required />
-                            </div>
                             {/* EMAIL______ */}
                             <div className="form-control">
                                 <label className="label">
@@ -45,9 +36,9 @@ const Register = () => {
                                 </label>
                                 <input type="password" placeholder="5-digit PIN" className="input input-bordered" required />
                             </div>
-                            <h2 className="text-gray-500 text-sm mt-1">Already Have an Account? <Link className='text-blue-400 font-semibold' to="/login" > Login</Link>  </h2>
+                            <h2 className="text-gray-500 text-sm mt-1">Don't have an account? <Link className='text-blue-400 font-semibold' to="/register" > Register </Link>  </h2>
                             <div className="form-control mt-6">
-                                <button className="btn btn-base">Register</button>
+                                <button className="btn btn-base">Login</button>
                             </div>
                         </form>
                     </div>
@@ -57,4 +48,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
